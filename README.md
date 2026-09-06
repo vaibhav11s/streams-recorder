@@ -58,8 +58,8 @@ stateDiagram-v2
   idle --> ready: attach a live stream
   ready --> idle: last live track ends or is detached
   ready --> recording: startRecording()
-  recording --> paused: pauseRecording()\nall tracks dropped\nAudioContext suspended
-  paused --> recording: resumeRecording()\nre-attach after track auto-pause\nAudioContext running again
+  recording --> paused: pause, tracks dropped, or AudioContext suspended
+  paused --> recording: resume, re-attach after auto-pause, or context running
   idle --> stopped: stopRecording() / cleanup()
   ready --> stopped: stopRecording() / cleanup()
   recording --> stopped: stopRecording()
