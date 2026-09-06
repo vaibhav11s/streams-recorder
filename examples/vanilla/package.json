@@ -1,0 +1,18 @@
+{
+  "name": "streams-recorder-example-vanilla",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "streams-recorder": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.0",
+    "vite": "^8.0.8"
+  }
+}

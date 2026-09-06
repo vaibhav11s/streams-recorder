@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>streams-recorder vanilla example</title>
+  </head>
+  <body>
+    <main>
+      <h1>streams-recorder</h1>
+      <p class="lede">
+        Mix a microphone and optional tab/display audio into one MediaRecorder timeline.
+      </p>
+
+      <section>
+        <h2>Sources</h2>
+        <div class="row">
+          <button type="button" id="attach-mic">Attach microphone</button>
+          <button type="button" id="detach-mic" disabled>Detach microphone</button>
+        </div>
+        <div class="row">
+          <button type="button" id="attach-display">Attach display audio</button>
+          <button type="button" id="detach-display" disabled>Detach display</button>
+        </div>
+        <p id="sources" class="status">Active sources: none</p>
+      </section>
+
+      <section>
+        <h2>Output mix</h2>
+        <canvas id="visualizer" width="640" height="96" aria-label="Mixed output audio levels"></canvas>
+      </section>
+
+      <section>
+        <h2>Recording</h2>
+        <p id="state" class="status">State: idle</p>
+        <p id="duration" class="status">Duration: 00:00</p>
+        <div class="row">
+          <button type="button" id="start" disabled>Start</button>
+          <button type="button" id="pause" disabled>Pause</button>
+          <button type="button" id="resume" disabled>Resume</button>
+          <button type="button" id="stop" disabled>Stop &amp; download</button>
+        </div>
+      </section>
+
+      <p id="error" class="error" hidden></p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

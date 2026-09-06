@@ -49,6 +49,9 @@
     "build": "vite build && tsc -p tsconfig.build.json",
     "prepack": "pnpm build",
     "type-check": "tsc --noEmit -p tsconfig.json",
+    "dev:vue": "pnpm --filter streams-recorder-example-vue dev",
+    "dev:vanilla": "pnpm --filter streams-recorder-example-vanilla dev",
+    "dev:react": "pnpm --filter streams-recorder-example-react dev",
     "lint": "run-s lint:*",
     "lint:oxlint": "oxlint . --fix",
     "lint:eslint": "eslint . --fix --cache"

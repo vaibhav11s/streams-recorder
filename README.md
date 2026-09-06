@@ -102,6 +102,19 @@ const { recordingState, changeSourceStream, startRecording, stopRecording, getDu
 
 Same single-use rule: remount the component (`:key`) after stop. Poll `getDurationMs()` in the app if you need a timer.
 
+## Examples
+
+Clone this repo, then:
+
+```sh
+pnpm install
+pnpm dev:vanilla   # microphone + optional display audio, download on stop
+pnpm dev:react     # same demo in React
+pnpm dev:vue       # same demo in Vue, with a microphone device picker
+```
+
+The vanilla example is the easiest place to try multi-source mixing. React and Vue wrap the same recorder API.
+
 ## Feedback
 
 Useful reports include: browser + version, OS, whether sources were mic / tab / system audio, and whether the failure was start, pause, device unplug, or backgrounding the tab.
