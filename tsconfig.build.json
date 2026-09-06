@@ -7,5 +7,5 @@
     "noEmit": false,
     "outDir": "dist"
   },
-  "include": ["src/index.ts", "src/streamsRecorder.ts"]
+  "include": ["src/index.ts", "src/streamsRecorder.ts", "src/react.ts", "src/vue.ts"]
 }

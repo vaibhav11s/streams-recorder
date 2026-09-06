@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
+    "jsx": "react-jsx",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "bundler",
@@ -11,5 +12,5 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
-  "include": ["src/index.ts", "src/streamsRecorder.ts"]
+  "include": ["src/index.ts", "src/streamsRecorder.ts", "src/react.ts", "src/vue.ts"]
 }

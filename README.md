@@ -54,7 +54,7 @@ State machine:
 
 `idle` → attach a live stream → `ready` → `startRecording()` → `recording` ⇄ `paused` → `stopRecording()` → `stopped`
 
-Each instance is **single-use**. After `stopRecording()` or `cleanup()`, create a new one.
+Each instance is **single-use**. After `stopRecording()` or `cleanup()`, create a new one (in React/Vue, remount the component).
 
 ## Public API
 
@@ -75,6 +75,32 @@ Each instance is **single-use**. After `stopRecording()` or `cleanup()`, create 
 - **All tracks ended:** auto-pauses so the timeline does not keep emitting empty data; attaching a live stream can auto-resume. If nothing is recording, state drops from `ready` back to `idle`.
 - **`AudioContext` suspended / interrupted:** auto-pause, then auto-resume when the context is `running` again (phone calls, tab freeze, iOS).
 - **Mime fallback:** prefers `audio/webm;codecs=opus`, then Safari `audio/mp4`.
+
+React and Vue helpers are optional subpath exports. Install the matching framework as a peer if you use them.
+
+### React
+
+```ts
+import { useStreamsRecorder } from 'streams-recorder/react'
+
+const { recordingState, changeSourceStream, startRecording, stopRecording, getDurationMs } = useStreamsRecorder({
+  onDataAvailable: event => chunks.push(event.data),
+})
+```
+
+The instance is created once per component mount. After `stopRecording()`, remount the component (for example `key={session}`) to get a new recorder. Duration is not tracked in the hook — call `getDurationMs()` yourself.
+
+### Vue
+
+```ts
+import { useStreamsRecorder } from 'streams-recorder/vue'
+
+const { recordingState, changeSourceStream, startRecording, stopRecording, getDurationMs } = useStreamsRecorder({
+  onDataAvailable: event => chunks.push(event.data),
+})
+```
+
+Same single-use rule: remount the component (`:key`) after stop. Poll `getDurationMs()` in the app if you need a timer.
 
 ## Feedback
 
