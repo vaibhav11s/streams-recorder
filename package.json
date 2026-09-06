@@ -1,7 +1,7 @@
 {
   "name": "streams-recorder",
   "type": "module",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Browser audio recorder that mixes multiple live MediaStreams with pause/resume that survives track dropouts and AudioContext interruptions.",
   "author": "Vaibhav S",
   "license": "MIT",
