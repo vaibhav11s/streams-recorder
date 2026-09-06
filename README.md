@@ -52,9 +52,21 @@ await recorder.changeSourceStream('mic', null)
 
 State machine:
 
-`idle` → attach a live stream → `ready` → `startRecording()` → `recording` ⇄ `paused` → `stopRecording()` → `stopped`
+```mermaid
+stateDiagram-v2
+  [*] --> idle
+  idle --> ready: attach a live stream
+  ready --> idle: last live track ends or is detached
+  ready --> recording: startRecording()
+  recording --> paused: pauseRecording()\nall tracks dropped\nAudioContext suspended
+  paused --> recording: resumeRecording()\nre-attach after track auto-pause\nAudioContext running again
+  idle --> stopped: stopRecording() / cleanup()
+  ready --> stopped: stopRecording() / cleanup()
+  recording --> stopped: stopRecording()
+  paused --> stopped: stopRecording()
+```
 
-Each instance is **single-use**. After `stopRecording()` or `cleanup()`, create a new one (in React/Vue, remount the component).
+`stopped` is terminal. Each instance is **single-use** — after `stopRecording()` or `cleanup()`, create a new one (in React/Vue, remount the component).
 
 ## Public API
 
