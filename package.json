@@ -1,0 +1,62 @@
+{
+  "name": "streams-recorder",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "Browser audio recorder that mixes multiple live MediaStreams with pause/resume that survives track dropouts and AudioContext interruptions.",
+  "author": "Vaibhav S",
+  "license": "MIT",
+  "homepage": "https://github.com/vaibhav11s/streams-recorder#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaibhav11s/streams-recorder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vaibhav11s/streams-recorder/issues"
+  },
+  "keywords": [
+    "audio",
+    "mediarecorder",
+    "mediastream",
+    "web-audio",
+    "browser",
+    "mixer",
+    "microphone"
+  ],
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build && tsc -p tsconfig.build.json",
+    "prepack": "pnpm build",
+    "type-check": "tsc --noEmit -p tsconfig.json",
+    "lint": "run-s lint:*",
+    "lint:oxlint": "oxlint . --fix",
+    "lint:eslint": "eslint . --fix --cache"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^9.0.0",
+    "@tsconfig/node24": "^24.0.4",
+    "@types/node": "^24.12.2",
+    "@vue/eslint-config-typescript": "^14.7.0",
+    "eslint": "^10.2.1",
+    "eslint-plugin-oxlint": "~1.60.0",
+    "eslint-plugin-vue": "~10.8.0",
+    "jiti": "^2.6.1",
+    "npm-run-all2": "^8.0.4",
+    "oxlint": "~1.60.0",
+    "typescript": "~6.0.0",
+    "vite": "^8.0.8"
+  }
+}
