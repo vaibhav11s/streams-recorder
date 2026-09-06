@@ -2,7 +2,9 @@
 
 Browser audio recorder that mixes **multiple live `MediaStream`s** into one `MediaRecorder` timeline. Built for reliability: mute, unplug, and `AudioContext` interruptions should pause instead of writing empty chunks or getting stuck.
 
-This is an early `0.1.0` for feedback. Please open [issues](https://github.com/vaibhav11s/streams-recorder/issues) with browser + OS details when something fails.
+**[Try the live demo](https://vaibhav11s.github.io/streams-recorder/)** — mix your microphone with tab or system audio and download the result.
+
+This is an early release for feedback. Please open [issues](https://github.com/vaibhav11s/streams-recorder/issues) with browser + OS details when something fails.
 
 **Browser only.** There is no Node runtime.
 
@@ -116,7 +118,7 @@ Same single-use rule: remount the component (`:key`) after stop. Poll `getDurati
 
 ## Examples
 
-Clone this repo, then:
+The React example is deployed at [vaibhav11s.github.io/streams-recorder](https://vaibhav11s.github.io/streams-recorder/). To run any of them locally, clone this repo, then:
 
 ```sh
 pnpm install
